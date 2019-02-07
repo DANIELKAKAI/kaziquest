@@ -1,0 +1,11 @@
+version: '3'
+
+services:
+  web:
+    container_name: django-app
+    build: .
+    volumes:
+      - .:/django-docker
+    restart: always
+    ports:
+      - "8080:8000"

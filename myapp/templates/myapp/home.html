@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>kaziquest</title>
+
+    
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+    <link rel="stylesheet" href="{% static 'myapp/styles.css'%}">
+</head>
+
+<body>
+
+
+
+
+
+
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="/home/">KAZIQUEST</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/home/">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    {% if role == 'student'%}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Subjects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">KCPE</a>
+                    </li>
+                    {% endif %}
+
+                    {% if role == 'teacher' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Classes</a>
+                    </li>
+                    {% endif %}
+
+                    {% if role == 'teacher' or role == 'admin' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/student/">Students</a>
+                    </li>
+                    {% endif %}
+
+
+
+                    {% if role == 'admin' %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/users/teacher/">Teachers</a>
+                    </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signup/">Sign Up</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/signin/">Sign In</a>
+                    </li>
+
+
+                </ul>
+                <form class="form-inline my-2 my-lg-0" method="GET" action='/logout/'>
+
+                    <button name="logout" class="btn btn-outline-danger my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+            </div>
+        </nav>
+
+        <div class="row align-items-center justify-content-center">
+            <h3>{{name}} loged in</h3>
+
+        </div>
+
+
+
+       
+
+    </div>
+    <!--container end.//-->
+
+
+
+</body>
+
+</html>
