@@ -107,7 +107,7 @@ def logout_user(request):
 
 
 
-@login_required(login_url='signin')
+@login_required(login_url='signup')
 def index(request):
 	return redirect('home')
 
