@@ -8,5 +8,6 @@ urlpatterns = [
     path('google-signup/',google_signup,name="google-signup"),
     re_path(r'^$',index,name="index"),
     path('logout/',logout_user,name="logout"),
-    path('users/<str:role>/',users,name="users")
+    path('users/<str:role>/',users,name="users"),
+    path('verify-email/',verify_email,name="verify-email")
 ]
