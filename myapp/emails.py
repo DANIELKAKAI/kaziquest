@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 
 def send_verify_code(user_email):
 	code  = encrypt(plaintext=user_email)
-	msg = "Click the following link to verify email:\n http://localhost:8000/verify-email/?code={}".format(code)
+	msg = "Click the following link to verify email:\n http://http://68.183.34.33:8000/verify-email/?code={}".format(code)
 	send_mail('Confirm email', msg, 'Unkown  <devemail359@gmail.com>', [user_email], fail_silently=True)
 
 
