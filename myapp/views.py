@@ -17,10 +17,10 @@ def home(request):
 
 @login_required(login_url='signin')
 def users(request,role):
-	profle = UserProfile.objects.get(user=request.user)
+	profile = UserProfile.objects.get(user=request.user)
 	context = {'users':None,'role':profile.role}
-	if user.role == 'student' and role != 'student':
-		return redirect('users',role='student')
+	if profile.role == 'student':
+		return redirect('home')
 	else:
 		user_list = UserProfile.objects.filter(role=role)
 		context['users']=user_list
@@ -102,5 +102,7 @@ def logout_user(request):
 	return redirect("signin")
 
 
-def form(request):
+
+@login_required(login_url='signin')
+def index(request):
 	return redirect('home')

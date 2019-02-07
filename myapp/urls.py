@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path,re_path
 from myapp.views import *
 
 urlpatterns = [
@@ -6,7 +6,7 @@ urlpatterns = [
     path('signin/',signin,name="signin"),
     path('signup/',signup,name="signup"),
     path('google-signup/',google_signup,name="google-signup"),
-    path('form-api/',form,name="form-api"),
+    re_path(r'^$',index,name="index"),
     path('logout/',logout_user,name="logout"),
     path('users/<str:role>/',users,name="users")
 ]
